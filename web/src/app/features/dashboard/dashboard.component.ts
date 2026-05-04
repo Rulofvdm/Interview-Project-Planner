@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivityFeedSectionComponent } from './activity-feed/activity-feed-section.component';
+import { ProjectsSectionComponent } from './projects-section/projects-section.component';
+import { StatCardsSectionComponent } from './stat-cards/stat-cards-section.component';
 
 /**
  * Build the dashboard here. Full brief: /instructions
@@ -19,10 +21,12 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterLink],
-  template: `
-    <h1>Dashboard</h1>
-    <p>This is your canvas. See <a routerLink="/instructions">/instructions</a> for the brief.</p>
-  `,
+  imports: [
+    ActivityFeedSectionComponent,
+    ProjectsSectionComponent,
+    StatCardsSectionComponent,
+  ],
+  templateUrl: 'dashboard.component.html',
+  styleUrl: 'dashboard.component.scss',
 })
 export class DashboardComponent {}
