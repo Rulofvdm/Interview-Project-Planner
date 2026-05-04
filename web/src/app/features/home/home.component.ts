@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [RouterLink, MatButtonModule],
   template: `
     <section class="hero">

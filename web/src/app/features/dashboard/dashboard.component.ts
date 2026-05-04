@@ -20,7 +20,6 @@ import { StatCardsSectionComponent } from './stat-cards/stat-cards-section.compo
  */
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
   imports: [
     ActivityFeedSectionComponent,
     ProjectsSectionComponent,

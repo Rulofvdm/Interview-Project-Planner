@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-instructions',
-  standalone: true,
   imports: [RouterLink],
   template: `
     <article class="brief">

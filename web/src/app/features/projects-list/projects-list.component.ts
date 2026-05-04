@@ -34,7 +34,6 @@ const STATUS_LABEL: Record<ProjectStatus, string> = {
 
 @Component({
   selector: 'app-projects-list',
-  standalone: true,
   imports: [
     DatePipe,
     MatButtonModule,

@@ -32,7 +32,6 @@ const TASK_STATUS_LABEL: Record<TaskStatus, string> = {
 
 @Component({
   selector: 'app-tasks-dialog',
-  standalone: true,
   imports: [
     FormsModule,
     MatButtonModule,

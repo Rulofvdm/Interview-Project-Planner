@@ -25,7 +25,6 @@ export interface EditProjectFormValue {
 
 @Component({
   selector: 'app-edit-project-dialog',
-  standalone: true,
   imports: [
     FormsModule,
     MatButtonModule,

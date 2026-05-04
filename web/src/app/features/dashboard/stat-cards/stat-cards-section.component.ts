@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-stat-cards-section',
-  standalone: true,
   templateUrl: 'stat-cards-section.component.html',
   styleUrl: 'stat-cards-section.component.scss',
 })
