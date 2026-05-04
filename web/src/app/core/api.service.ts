@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { Project, ActivityItem, Task, TaskStatus } from './models';
 
 const API_BASE = 'http://localhost:3001/api';
@@ -19,7 +19,9 @@ export class ApiService {
   private readonly http = inject(HttpClient);
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${API_BASE}/projects`);
+    return this.http.get<Project[]>(`${API_BASE}/projects`).pipe(
+      retry(3)
+    ); 
   }
 
   getActivity(): Observable<ActivityItem[]> {
