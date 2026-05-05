@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core'
+import { RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-instructions',
@@ -238,7 +238,7 @@ export class InstructionsComponent {
     "tasksDone": 16,
     "tags": ["backend", "infra"]
   }
-]`;
+]`
 
   readonly activitySample = `[
   {
@@ -250,7 +250,7 @@ export class InstructionsComponent {
     "message": "completed \\"Database schema review\\"",
     "timestamp": "2026-04-29T08:32:00Z"
   }
-]`;
+]`
 
   readonly taskSample = `[
   {
@@ -259,7 +259,7 @@ export class InstructionsComponent {
     "title": "Task 1",
     "status": "completed"
   }
-]`;
+]`
 
   readonly taskMutationSample = `{
   "task": {
@@ -277,5 +277,5 @@ export class InstructionsComponent {
     "tasksDone": 16,
     ...
   }
-}`;
+}`
 }

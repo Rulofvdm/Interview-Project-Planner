@@ -1,26 +1,26 @@
-import { Component, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { Component, inject, signal } from '@angular/core'
+import { FormsModule } from '@angular/forms'
+import { MatButtonModule } from '@angular/material/button'
+import { MatDatepickerModule } from '@angular/material/datepicker'
 import {
   MAT_DIALOG_DATA,
   MatDialogModule,
   MatDialogRef,
-} from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { Project, ProjectStatus } from '../../../core/models';
+} from '@angular/material/dialog'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
+import { Project, ProjectStatus } from '../../../core/models'
 
 export interface EditProjectDialogData {
-  project: Project;
+  project: Project
 }
 
 export interface EditProjectFormValue {
-  name: string;
-  description: string;
-  status: ProjectStatus;
-  dueDate: string;
+  name: string
+  description: string
+  status: ProjectStatus
+  dueDate: string
 }
 
 @Component({
@@ -106,36 +106,36 @@ export interface EditProjectFormValue {
   `],
 })
 export class EditProjectDialogComponent {
-  protected readonly data = inject<EditProjectDialogData>(MAT_DIALOG_DATA);
+  protected readonly data = inject<EditProjectDialogData>(MAT_DIALOG_DATA)
   protected readonly dialogRef =
-    inject<MatDialogRef<EditProjectDialogComponent, EditProjectFormValue>>(MatDialogRef);
-  protected readonly saving = signal(false);
+    inject<MatDialogRef<EditProjectDialogComponent, EditProjectFormValue>>(MatDialogRef)
+  protected readonly saving = signal(false)
 
   protected form = {
     name: this.data.project.name,
     description: this.data.project.description,
     status: this.data.project.status,
-  };
+  }
   protected dueDateValue: Date | null = this.data.project.dueDate
     ? new Date(this.data.project.dueDate)
-    : null;
+    : null
 
   save(event: Event): void {
-    event.preventDefault();
-    if (!this.form.name?.trim()) return;
-    this.saving.set(true);
+    event.preventDefault()
+    if (!this.form.name?.trim()) return
+    this.saving.set(true)
     this.dialogRef.close({
       name: this.form.name.trim(),
       description: this.form.description ?? '',
       status: this.form.status,
       dueDate: this.dueDateValue ? this.toIsoDate(this.dueDateValue) : '',
-    });
+    })
   }
 
   private toIsoDate(d: Date): string {
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
-    return `${yyyy}-${mm}-${dd}`;
+    const yyyy = d.getFullYear()
+    const mm = String(d.getMonth() + 1).padStart(2, '0')
+    const dd = String(d.getDate()).padStart(2, '0')
+    return `${yyyy}-${mm}-${dd}`
   }
 }

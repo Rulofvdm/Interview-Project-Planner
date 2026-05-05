@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivityFeedSectionComponent } from './activity-feed/activity-feed-section.component';
-import { ProjectsSectionComponent } from './projects-section/projects-section.component';
-import { StatCardsSectionComponent } from './stat-cards/stat-cards-section.component';
+import { Component } from '@angular/core'
+import { ActivityFeedSectionComponent } from './activity-feed/activity-feed-section.component'
+import { ProjectsSectionComponent } from './projects-section/projects-section.component'
+import { StatCardsSectionComponent } from './stat-cards/stat-cards-section.component'
 
 /**
  * Build the dashboard here. Full brief: /instructions

@@ -1,17 +1,17 @@
-import { Component, inject } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { Component, inject } from '@angular/core'
+import { MatButtonModule } from '@angular/material/button'
 import {
   MAT_DIALOG_DATA,
   MatDialogModule,
   MatDialogRef,
-} from '@angular/material/dialog';
+} from '@angular/material/dialog'
 
 export interface ConfirmDialogData {
-  title: string;
-  message: string;
-  confirmLabel?: string;
-  cancelLabel?: string;
-  destructive?: boolean;
+  title: string
+  message: string
+  confirmLabel?: string
+  cancelLabel?: string
+  destructive?: boolean
 }
 
 @Component({
@@ -37,6 +37,6 @@ export interface ConfirmDialogData {
   `,
 })
 export class ConfirmDialogComponent {
-  protected readonly data = inject<ConfirmDialogData>(MAT_DIALOG_DATA);
-  protected readonly dialogRef = inject<MatDialogRef<ConfirmDialogComponent, boolean>>(MatDialogRef);
+  protected readonly data = inject<ConfirmDialogData>(MAT_DIALOG_DATA)
+  protected readonly dialogRef = inject<MatDialogRef<ConfirmDialogComponent, boolean>>(MatDialogRef)
 }
