@@ -1,8 +1,8 @@
 <section>
   <header class="projects-section__header">
-    <h1>Projects</h1>
+    <h1 id="projects-section-header-title">Projects</h1>
     <div class="projects-section__controls">
-      <div class="projects-section__toolbar"> <!-- Because I don't really know the exact business needs -->
+      <div class="projects-section__toolbar">
         <mat-button-toggle-group
           class="projects-section__view-toggle"
           [value]="viewMode()"
@@ -18,11 +18,12 @@
         </mat-button-toggle-group>
       </div>
       <div class="projects-section__filters">
-        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic" class="filter-field filter-field--search">
           <mat-label>Search</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
           <input matInput [value]="searchText()" (input)="onSearchTextChange($event.target.value)" />
         </mat-form-field>
-        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic" class="filter-field filter-field--status">
           <mat-label>Status</mat-label>
           <mat-select
             [value]="statusFilter()"
