@@ -1,0 +1,37 @@
+<div class="stat-cards-section">
+    @if (loading) {
+        <div>
+            <mat-spinner diameter="32" />
+            <span>Loading stat cards…</span>
+        </div>
+    } @else {
+    <div class="stat-card total-projects">
+        <mat-icon class="stat-card__icon">dashboard</mat-icon>
+        <div class="stat-card__content">
+            <div class="stat-card__value total-projects__value">{{ totalProjects() }}</div>
+            <div class="stat-card__title">Total Projects</div>
+        </div>
+    </div>
+    <div class="stat-card in-progress-projects">
+        <mat-icon class="stat-card__icon">autorenew</mat-icon>
+        <div class="stat-card__content">
+            <div class="stat-card__value in-progress-projects__value">{{ inProgressProjects() }}</div>
+            <div class="stat-card__title">In Progress Projects</div>
+        </div>
+    </div>
+    <div class="stat-card overdue-projects">
+        <mat-icon class="stat-card__icon">warning</mat-icon>
+        <div class="stat-card__content">
+            <div class="stat-card__value overdue-projects__value">{{ overdueProjects() }}</div>
+            <div class="stat-card__title">Overdue Projects</div>
+        </div>
+    </div>
+    <div class="stat-card completed-projects">
+        <mat-icon class="stat-card__icon">check_circle</mat-icon>
+        <div class="stat-card__content">
+            <div class="stat-card__value completed-projects__value">{{ completedProjects() }}</div>
+            <div class="stat-card__title">Completed Projects</div>
+        </div>
+    </div>
+    }
+</div>

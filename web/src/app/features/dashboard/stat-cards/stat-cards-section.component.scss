@@ -1,0 +1,64 @@
+.stat-cards-section {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--bg-panel);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    padding: var(--space-3) var(--space-5);
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-4);
+    width: 100%;
+    .stat-card__content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+    &__icon {
+        margin: auto 0;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        color: var(--text-secondary);
+    }
+    &.total-projects {
+        background-color: var(--status-not-started-background);
+        .stat-card__value {
+            color: var(--status-not-started);
+            font-size: 28px;
+        }
+        .stat-card__icon { color: var(--status-not-started); }
+    }
+    &.in-progress-projects {
+        background-color: var(--status-in-progress-background);
+        .stat-card__value {
+            color: var(--status-in-progress);
+            font-size: 28px;
+        }
+        .stat-card__icon { color: var(--status-in-progress); }
+    }
+    &.overdue-projects {
+        background-color: var(--status-overdue-background);
+        .stat-card__value {
+            color: var(--status-overdue);
+            font-size: 28px;
+        }
+        .stat-card__icon { color: var(--status-overdue); }
+    }
+    &.completed-projects {
+        background-color: var(--status-completed-background);
+        .stat-card__value {
+            color: var(--status-completed);
+            font-size: 28px;
+        }
+        .stat-card__icon { color: var(--status-completed); }
+    }
+    &__title {
+        font-size: 14px;
+        color: var(--text-secondary);
+    }
+}

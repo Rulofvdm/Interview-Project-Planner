@@ -1,5 +1,7 @@
-<div>
-  <!-- <app-stat-cards-section [projects]="projects" [loading]="projectsLoading()" /> -->
-  <app-projects-section [projects]="projects" [loading]="projectsLoading()" />
-  <!-- <app-activity-feed-section/> -->
+<div class="dashboard-container">
+  <app-stat-cards-section [projects]="projects" [loading]="projectsLoading()" class="stat-cards-section"/>
+  <div class="projects-and-activity-feed">
+    <app-projects-section [projects]="projects" [loading]="projectsLoading()" class="projects-section"/>
+    <app-activity-feed-section class="activity-feed-section"/>
+  </div>
 </div>
