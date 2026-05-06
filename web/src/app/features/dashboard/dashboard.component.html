@@ -1,11 +1,11 @@
-<div class="dashboard-container">
-  <app-stat-cards-section [projects]="projects" [loading]="projectsLoading()" class="stat-cards-section"/>
-  <div class="projects-and-activity-feed">
-    <app-projects-section [projects]="projects" [loading]="projectsLoading()" class="projects-section"/>
-    <app-activity-feed-section
-      class="activity-feed-section"
-      [activity]="activity"
-      [loading]="activityLoading()"
-    />
+@if (!(projectsLoading() || activityLoading()) && error()) {
+  <app-dashboard-error/>
+} @else {
+  <div class="dashboard-container">
+    <app-stat-cards-section [projects]="projects" [loading]="projectsLoading()" class="stat-cards-section" />
+    <div class="projects-and-activity-feed">
+      <app-projects-section [projects]="projects" [loading]="projectsLoading()" class="projects-section" />
+      <app-activity-feed-section class="activity-feed-section" [activity]="activity" [loading]="activityLoading()" />
+    </div>
   </div>
-</div>
+}

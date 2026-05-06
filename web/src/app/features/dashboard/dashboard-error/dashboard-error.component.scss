@@ -1,0 +1,24 @@
+.dashboard-error-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: var(--bg-hover);
+}
+
+.dashboard-error-card {
+  max-width: 420px;
+  padding: var(--space-4);
+  text-align: center;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.dashboard-error-card h1,
+.dashboard-error-card p {
+  margin: 0;
+}
