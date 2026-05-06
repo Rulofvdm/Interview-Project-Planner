@@ -1,0 +1,24 @@
+.activity-feed-section {
+  background: var(--bg-panel);
+  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.activity-item {
+  padding: var(--space-2) var(--space-1);
+  border-bottom: 1px solid var(--border-subtle);
+
+  .icon { margin: 2px 8px 2px 0 ; }
+
+  .title {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  .meta {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+  }
+}

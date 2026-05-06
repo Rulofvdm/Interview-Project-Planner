@@ -2,6 +2,10 @@
   <app-stat-cards-section [projects]="projects" [loading]="projectsLoading()" class="stat-cards-section"/>
   <div class="projects-and-activity-feed">
     <app-projects-section [projects]="projects" [loading]="projectsLoading()" class="projects-section"/>
-    <app-activity-feed-section class="activity-feed-section"/>
+    <app-activity-feed-section
+      class="activity-feed-section"
+      [activity]="activity"
+      [loading]="activityLoading()"
+    />
   </div>
 </div>

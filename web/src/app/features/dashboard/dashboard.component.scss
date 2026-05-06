@@ -1,24 +1,32 @@
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .projects-and-activity-feed {
   display: flex;
-  gap: var(--space-6);
+  gap: var(--space-4);
+}
+
+.projects-section {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.activity-feed-section {
+  flex: 0 0 33%;
+  min-width: 0;
 }
 
 @media (max-width: 768px) {
   .projects-and-activity-feed {
     flex-direction: column;
   }
-}
 
-.projects-section {
-  flex: 3;
-}
-
-.activity-feed-section {
-  flex: 1;
+  .projects-section,
+  .activity-feed-section {
+    flex: 1 1 auto;
+    width: 100%;
+  }
 }

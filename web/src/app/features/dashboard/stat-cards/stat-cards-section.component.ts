@@ -13,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon'
   ],
 })
 export class StatCardsSectionComponent {
-  @Input() projects!: Signal<Project[]>
-  @Input() loading!: boolean
+  @Input({ required: true }) projects!: Signal<Project[]>
+  @Input({ required: true }) loading!: boolean
 
   totalProjects = computed(() => this.projects().length ?? 0)
   inProgressProjects = computed(() => this.projects().filter(project => project.status === 'in_progress').length ?? 0)

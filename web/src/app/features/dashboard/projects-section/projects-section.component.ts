@@ -27,8 +27,8 @@ type ProjectsSectionViewMode = 'list' | 'table'
   styleUrl: 'projects-section.component.scss',
 })
 export class ProjectsSectionComponent {
-  @Input() projects!: Signal<Project[]>
-  @Input() loading!: boolean
+  @Input({ required: true }) projects!: Signal<Project[]>
+  @Input({ required: true }) loading!: boolean
 
   readonly projectStatusFilterOptions = PROJECT_STATUS_FILTER_OPTIONS
   

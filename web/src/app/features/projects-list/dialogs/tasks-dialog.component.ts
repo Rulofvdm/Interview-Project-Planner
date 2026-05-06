@@ -125,68 +125,68 @@ const TASK_STATUS_LABEL: Record<TaskStatus, string> = {
     </mat-dialog-actions>
   `,
   styles: [`
-    :host { display: block min-width: 560px }
-    .muted { margin: 0 color: var(--text-secondary) font-size: var(--font-size-sm) }
+    :host { display: block; min-width: 560px }
+    .muted { margin: 0; color: var(--text-secondary); font-size: var(--font-size-sm) }
     .add-task {
-      display: flex
-      gap: var(--space-2)
-      margin-top: var(--space-3)
-      align-items: flex-start
+      display: flex;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+      align-items: flex-start;
     }
     .add-task__field { flex: 1 }
     .state {
-      display: flex
-      align-items: center
-      gap: var(--space-2)
-      padding: var(--space-3)
-      color: var(--text-secondary)
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      color: var(--text-secondary);
       &.error { color: var(--status-overdue) }
     }
     .task-list {
-      list-style: none
-      margin: 0
-      padding: 0
-      max-height: 360px
-      overflow-y: auto
-      border: 1px solid var(--border-subtle)
-      border-radius: var(--radius-sm)
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 360px;
+      overflow-y: auto;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
     }
     .task {
-      display: grid
-      grid-template-columns: auto 1fr auto auto
-      align-items: center
-      gap: var(--space-3)
-      padding: var(--space-2) var(--space-3)
-      border-bottom: 1px solid var(--border-subtle)
-      &:last-child { border-bottom: 0 }
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid var(--border-subtle);
+      &:last-child { border-bottom: 0; }
       &:hover { background: var(--bg-hover) }
     }
     .task__title {
-      font-size: var(--font-size-base)
-      cursor: text
-      padding: 4px 6px
-      border-radius: var(--radius-sm)
+      font-size: var(--font-size-base);
+      cursor: text;
+      padding: 4px 6px;
+      border-radius: var(--radius-sm);
       &:hover { background: var(--bg-hover) }
-      &:focus { outline: 2px solid var(--accent) outline-offset: 1px }
+      &:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     }
     .task__title-input {
-      font-family: inherit
-      font-size: var(--font-size-base)
-      padding: 4px 6px
-      border: 1px solid var(--accent)
-      border-radius: var(--radius-sm)
-      background: var(--bg-panel)
-      color: var(--text-primary)
-      width: 100%
-      &:focus { outline: 2px solid var(--accent) outline-offset: -1px }
+      font-family: inherit;
+      font-size: var(--font-size-base);
+      padding: 4px 6px;
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm);
+      background: var(--bg-panel);
+      color: var(--text-primary);
+      width: 100%;
+      &:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
     }
     .task--completed .task__title {
-      color: var(--text-muted)
-      text-decoration: line-through
+      color: var(--text-muted);
+      text-decoration: line-through;
     }
-    .task-action-progress { --mdc-icon-button-icon-color: var(--accent)           color: var(--accent) }
-    .task-action-complete { --mdc-icon-button-icon-color: var(--status-completed) color: var(--status-completed) }
-    .task-action-delete   { --mdc-icon-button-icon-color: var(--status-overdue)   color: var(--status-overdue) }
+    .task-action-progress { --mdc-icon-button-icon-color: var(--accent); color: var(--accent); }
+    .task-action-complete { --mdc-icon-button-icon-color: var(--status-completed); color: var(--status-completed); }
+    .task-action-delete   { --mdc-icon-button-icon-color: var(--status-overdue); color: var(--status-overdue); }
     // Status-chip colours live in global styles.scss (Material 3's text label
     // sits in a child element that view encapsulation can't target).
   `],

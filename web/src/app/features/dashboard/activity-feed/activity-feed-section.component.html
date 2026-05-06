@@ -1,1 +1,47 @@
-<div style="width: 100px; height: 100px;">Empty div</div>
+<mat-card class="activity-feed-section">
+  <mat-card-header>
+    <mat-card-title>Recent activity</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    @if (loading) {
+      <p>
+        <mat-spinner diameter="28" />
+        Loading activity…
+      </p>
+    } @else if (!activity().length) {
+      <p>No recent activity.</p>
+    } @else {
+      @for (item of activity(); track item.id) {
+        <table class="activity-item">
+          <tr>
+            <td>
+            <mat-icon class="icon" [color]="activityIconColor(item.type)">
+              {{ activityIcon(item.type) }}
+            </mat-icon>
+            </td>
+            <td>
+              <span class="title">
+                <strong>{{ item.actor.name }}</strong>
+                {{ item.message }}
+                on
+                <strong>{{ item.projectName }}</strong>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="2">
+              <span class="meta">{{
+                activityMetaLine(item.timestamp)
+              }}</span>
+            </td>
+          </tr>
+        </table>
+        @if (!$last) {
+          <mat-divider />
+        }
+      }
+    }
+  </mat-card-content>
+</mat-card>
