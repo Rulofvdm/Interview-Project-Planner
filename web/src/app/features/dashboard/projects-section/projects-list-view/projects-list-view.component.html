@@ -1,0 +1,5 @@
+<div class="projects-list-view">
+  @for (project of projects; track project.id) {
+    <app-project-list-item-card [project]="project" />
+  }
+</div>

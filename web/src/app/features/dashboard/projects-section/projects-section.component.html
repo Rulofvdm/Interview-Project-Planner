@@ -1,0 +1,56 @@
+<section>
+  <header class="projects-section__header">
+    <h1>Projects</h1>
+    <div class="projects-section__controls">
+      <div class="projects-section__toolbar"> <!-- Because I don't really know the exact business needs -->
+        <mat-button-toggle-group
+          class="projects-section__view-toggle"
+          [value]="viewMode()"
+          (change)="onViewModeChange($event.value)"
+          hideSingleSelectionIndicator
+        >
+          <mat-button-toggle value="table">
+            <mat-icon>view_list</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle value="list">
+            <mat-icon>view_module</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div class="projects-section__filters">
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Search</mat-label>
+          <input matInput [value]="searchText()" (input)="onSearchTextChange($event.target.value)" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Status</mat-label>
+          <mat-select
+            [value]="statusFilter()"
+            (selectionChange)="onStatusFilterChange($event.value)"
+            >
+            @for (opt of projectStatusFilterOptions; track opt.value) {
+              <mat-option [value]="opt.value">{{ opt.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </header>
+
+  @if (loading) {
+    <div>
+      <mat-spinner diameter="32" />
+      <span>Loading projects…</span>
+    </div>
+  } @else if (!projects().length) {
+    <p>No projects yet.</p>
+  } @else if (filteredProjects().length === 0) {
+    <p>No projects match this filter.</p>
+  } @else {
+    @if (viewMode() === 'table') {
+      <app-projects-table-view [projects]="filteredProjects()" />
+    } @else {
+      <app-projects-list-view [projects]="filteredProjects()" />
+    }
+  }
+</section>

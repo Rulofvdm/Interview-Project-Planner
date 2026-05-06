@@ -1,0 +1,59 @@
+.projects-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.projects-section__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--space-2) var(--space-3);
+  min-width: 0;
+}
+
+.projects-section__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.projects-section__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.projects-section__view-toggle {
+  border-radius: var(--radius-md);
+}
+
+.projects-section__filters mat-form-field {
+  flex: 1 1 180px;
+  min-width: 0;
+}
+
+@media (max-width: 720px) {
+  .projects-section__header {
+    align-items: stretch;
+  }
+
+  .projects-section__controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .projects-section__toolbar {
+    width: 100%;
+  }
+
+  .projects-section__filters {
+    width: 100%;
+  }
+}

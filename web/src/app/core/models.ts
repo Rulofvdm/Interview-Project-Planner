@@ -1,4 +1,16 @@
 export type ProjectStatus = 'not_started' | 'in_progress' | 'completed' | 'overdue'
+export const PROJECT_STATUS_LABEL: Record<ProjectStatus, string> = {
+  not_started: 'Not started',
+  in_progress: 'In progress',
+  completed: 'Completed',
+  overdue: 'Overdue',
+}
+
+export type ProjectStatusFilterOption = ProjectStatus | 'all'
+export const PROJECT_STATUS_FILTER_OPTIONS: { value: ProjectStatusFilterOption, label: string }[] = [
+  { value: 'all', label: 'All statuses' },
+  ...Object.entries(PROJECT_STATUS_LABEL).map(([key, value]) => ({ value: key as ProjectStatus, label: value })),
+] as const
 
 export interface Owner {
   id: string
@@ -14,7 +26,7 @@ export interface Project {
   status: ProjectStatus
   owner: Owner
   dueDate: string        // ISO date (YYYY-MM-DD)
-  progress: number       // 0..1
+  progress: number       // float 0.0 → 1.0
   tasksTotal: number
   tasksDone: number
   tags: string[]
