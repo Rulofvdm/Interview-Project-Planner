@@ -83,3 +83,9 @@
         animation: none;
     }
 }
+
+@media (max-width: 992px) {
+    .stat-card__icon {
+        display: none;
+    }
+}
