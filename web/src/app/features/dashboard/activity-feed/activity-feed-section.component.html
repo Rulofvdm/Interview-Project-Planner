@@ -1,27 +1,22 @@
-<mat-card class="activity-feed-section">
+<mat-card class="activity-feed-section" [class.activity-feed-section--loaded]="!loading">
   <mat-card-header>
     <mat-card-title>Recent activity</mat-card-title>
   </mat-card-header>
 
   <mat-card-content>
-    @if (loading) {
-      <p>
-        <mat-spinner diameter="28" />
-        Loading activity…
-      </p>
-    } @else if (!activity().length) {
+    @if (!loading && !activity().length) {
       <p>No recent activity.</p>
     } @else {
-      @for (item of activity(); track item.id) {
+      @for (item of getActivityItems(); track item.id) {
         <table class="activity-item">
           <tr>
             <td>
-            <mat-icon class="icon" [color]="activityIconColor(item.type)">
-              {{ activityIcon(item.type) }}
-            </mat-icon>
+              <mat-icon class="icon" [color]="activityIconColor(item.type)" [appSkeleton]="{ loading: loading, type: 'icon' }">
+                {{ activityIcon(item.type) }}
+              </mat-icon>
             </td>
             <td>
-              <span class="title">
+              <span class="title" [appSkeleton]="{ loading: loading, type: 'text' }">
                 <strong>{{ item.actor.name }}</strong>
                 {{ item.message }}
                 on
@@ -32,7 +27,7 @@
           <tr>
             <td></td>
             <td colspan="2">
-              <span class="meta">{{
+              <span class="meta" [appSkeleton]="{ loading: loading, type: 'text' }">{{
                 activityMetaLine(item.timestamp)
               }}</span>
             </td>

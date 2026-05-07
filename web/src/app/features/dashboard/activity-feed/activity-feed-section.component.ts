@@ -1,17 +1,20 @@
 import { Component, Input, Signal } from '@angular/core'
 import { MatCardModule } from '@angular/material/card'
+import { MatDividerModule } from '@angular/material/divider'
 import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { ActivityItem, ActivityType } from '../../../core/models'
+import { SkeletonDirective } from '../../../core/directives/skeleton.directive'
+import { createMockActivity } from './activity-feed-loading.util'
 
 @Component({
   selector: 'app-activity-feed-section',
   imports: [
     MatCardModule,
+    MatDividerModule,
     MatIconModule,
     MatListModule,
-    MatProgressSpinnerModule,
+    SkeletonDirective,
   ],
   templateUrl: 'activity-feed-section.component.html',
   styleUrl: 'activity-feed-section.component.scss',
@@ -19,6 +22,12 @@ import { ActivityItem, ActivityType } from '../../../core/models'
 export class ActivityFeedSectionComponent {
   @Input({ required: true }) activity!: Signal<ActivityItem[]>
   @Input({ required: true }) loading!: boolean
+  readonly loadingActivity = createMockActivity(8)
+
+  getActivityItems(): ActivityItem[] {
+    if (this.loading) return this.loadingActivity
+    return this.activity()
+  }
 
   activityIcon(type: ActivityType): string {
     switch (type) {

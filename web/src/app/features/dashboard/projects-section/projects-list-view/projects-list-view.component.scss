@@ -12,7 +12,7 @@
 
 .projects-list-view--loaded app-project-list-item-card {
   opacity: 0;
-  animation: project-list-waterfall-in 220ms ease-out forwards;
+  animation: project-list-waterfall-in 220ms cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-delay: calc((var(--project-list-index, 0) * 30ms));
 }
 
