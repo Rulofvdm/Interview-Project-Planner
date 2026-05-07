@@ -1,30 +1,30 @@
 <div class="stat-cards-section">
     <div class="stat-card total-projects">
-        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">dashboard</mat-icon>
+        <mat-icon class="stat-card__icon" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">dashboard</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value total-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ totalProjects() }}</div>
-            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Total Projects</div>
+            <div class="stat-card__value total-projects__value" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">{{ totalProjects() }}</div>
+            <div class="stat-card__title" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">Total Projects</div>
         </div>
     </div>
     <div class="stat-card in-progress-projects">
-        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">autorenew</mat-icon>
+        <mat-icon class="stat-card__icon" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">autorenew</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value in-progress-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ inProgressProjects() }}</div>
-            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">In Progress Projects</div>
+            <div class="stat-card__value in-progress-projects__value" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">{{ inProgressProjects() }}</div>
+            <div class="stat-card__title" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">In Progress Projects</div>
         </div>
     </div>
     <div class="stat-card overdue-projects">
-        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">warning</mat-icon>
+        <mat-icon class="stat-card__icon" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">warning</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value overdue-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ overdueProjects() }}</div>
-            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Overdue Projects</div>
+            <div class="stat-card__value overdue-projects__value" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">{{ overdueProjects() }}</div>
+            <div class="stat-card__title" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">Overdue Projects</div>
         </div>
     </div>
     <div class="stat-card completed-projects">
-        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">check_circle</mat-icon>
+        <mat-icon class="stat-card__icon" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">check_circle</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value completed-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ completedProjects() }}</div>
-            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Completed Projects</div>
+            <div class="stat-card__value completed-projects__value" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">{{ completedProjects() }}</div>
+            <div class="stat-card__title" [class.stat-card__item--loaded]="!loading" [appSkeleton]="{ loading: loading, type: 'text' }">Completed Projects</div>
         </div>
     </div>
 </div>

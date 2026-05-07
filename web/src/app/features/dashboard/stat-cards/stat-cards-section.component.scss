@@ -1,3 +1,18 @@
+.stat-card__item--loaded {
+    animation: stat-card-item-fade 220ms ease-out;
+}
+
+@keyframes stat-card-item-fade {
+    from {
+        opacity: 0.5;
+        transform: translateX(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .stat-cards-section {
     display: flex;
     flex-direction: row;
@@ -60,5 +75,11 @@
     &__title {
         font-size: 14px;
         color: var(--text-secondary);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card__item--loaded {
+        animation: none;
     }
 }

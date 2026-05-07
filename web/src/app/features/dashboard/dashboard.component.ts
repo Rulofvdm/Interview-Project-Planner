@@ -26,7 +26,7 @@ export class DashboardComponent {
   readonly error = signal(false)
   readonly projectsLoading = signal(true)
   readonly projects = toSignal(this.apiService.getProjects().pipe(
-    delay(5000),
+    delay(500),
     tap(() => {
       this.projectsLoading.set(false)
     }),
@@ -40,7 +40,7 @@ export class DashboardComponent {
 
   readonly activityLoading = signal(true)
   readonly activity = toSignal(this.apiService.getActivity().pipe(
-    delay(5000),
+    delay(500),
     tap(() => {
       this.activityLoading.set(false)
     }),
