@@ -6,7 +6,7 @@ import { StatCardsSectionComponent } from './stat-cards/stat-cards-section.compo
 import { ApiService } from '../../core/api.service'
 import { ToastService } from '../../core/toast.service'
 import { toSignal } from '@angular/core/rxjs-interop'
-import { catchError, delay, of, tap } from 'rxjs'
+import { catchError, of, tap } from 'rxjs'
 
 @Component({
   selector: 'app-dashboard',
@@ -26,10 +26,7 @@ export class DashboardComponent {
   readonly error = signal(false)
   readonly projectsLoading = signal(true)
   readonly projects = toSignal(this.apiService.getProjects().pipe(
-    delay(5000),
-    tap(() => {
-      this.projectsLoading.set(false)
-    }),
+    tap(() => this.projectsLoading.set(false)),
     catchError(() => {
       this.projectsLoading.set(false)
       this.error.set(true)
@@ -40,10 +37,7 @@ export class DashboardComponent {
 
   readonly activityLoading = signal(true)
   readonly activity = toSignal(this.apiService.getActivity().pipe(
-    delay(5000),
-    tap(() => {
-      this.activityLoading.set(false)
-    }),
+    tap(() => this.activityLoading.set(false)),
     catchError(() => {
       this.activityLoading.set(false)
       this.error.set(true)
