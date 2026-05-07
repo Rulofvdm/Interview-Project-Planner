@@ -6,6 +6,7 @@ import { MatInput } from '@angular/material/input'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatSelectModule } from '@angular/material/select'
 import { Project, PROJECT_STATUS_FILTER_OPTIONS, ProjectStatusFilterOption } from '../../../core/models'
+import { ProjectsEmptyStateComponent } from './projects-empty-state/projects-empty-state.component'
 import { ProjectsListViewComponent } from './projects-list-view/projects-list-view.component'
 import { ProjectsTableViewComponent } from './projects-table-view/projects-table-view.component'
 import { createMockProjects } from './projects-list-view/projects-list-view-loading.util'
@@ -21,6 +22,7 @@ type ProjectsSectionViewMode = 'list' | 'table'
     MatInput,
     MatProgressSpinnerModule,
     MatSelectModule,
+    ProjectsEmptyStateComponent,
     ProjectsListViewComponent,
     ProjectsTableViewComponent,
   ],

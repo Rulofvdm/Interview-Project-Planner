@@ -39,9 +39,15 @@
   </header>
 
   @if (!loading && !projects().length) {
-    <p>No projects yet.</p>
+    <app-projects-empty-state
+      title="No projects yet"
+      description="Your project list is empty for now. Once projects are added, they will show up here."
+    ></app-projects-empty-state>
   } @else if (!loading && filteredProjects().length === 0) {
-    <p>No projects match this filter.</p>
+    <app-projects-empty-state
+      title="No results for this filter"
+      description="Try changing your search text or status filter to find matching projects."
+    ></app-projects-empty-state>
   } @else {
     @if (viewMode() === 'table') {
       @if (loading) {
