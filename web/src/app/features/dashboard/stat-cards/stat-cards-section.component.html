@@ -1,37 +1,30 @@
 <div class="stat-cards-section">
-    @if (loading) {
-        <div>
-            <mat-spinner diameter="32" />
-            <span>Loading stat cards…</span>
-        </div>
-    } @else {
     <div class="stat-card total-projects">
-        <mat-icon class="stat-card__icon">dashboard</mat-icon>
+        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">dashboard</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value total-projects__value">{{ totalProjects() }}</div>
-            <div class="stat-card__title">Total Projects</div>
+            <div class="stat-card__value total-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ totalProjects() }}</div>
+            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Total Projects</div>
         </div>
     </div>
     <div class="stat-card in-progress-projects">
-        <mat-icon class="stat-card__icon">autorenew</mat-icon>
+        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">autorenew</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value in-progress-projects__value">{{ inProgressProjects() }}</div>
-            <div class="stat-card__title">In Progress Projects</div>
+            <div class="stat-card__value in-progress-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ inProgressProjects() }}</div>
+            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">In Progress Projects</div>
         </div>
     </div>
     <div class="stat-card overdue-projects">
-        <mat-icon class="stat-card__icon">warning</mat-icon>
+        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">warning</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value overdue-projects__value">{{ overdueProjects() }}</div>
-            <div class="stat-card__title">Overdue Projects</div>
+            <div class="stat-card__value overdue-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ overdueProjects() }}</div>
+            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Overdue Projects</div>
         </div>
     </div>
     <div class="stat-card completed-projects">
-        <mat-icon class="stat-card__icon">check_circle</mat-icon>
+        <mat-icon class="stat-card__icon" [appSkeleton]="{ loading: loading, type: 'text' }">check_circle</mat-icon>
         <div class="stat-card__content">
-            <div class="stat-card__value completed-projects__value">{{ completedProjects() }}</div>
-            <div class="stat-card__title">Completed Projects</div>
+            <div class="stat-card__value completed-projects__value" [appSkeleton]="{ loading: loading, type: 'text' }">{{ completedProjects() }}</div>
+            <div class="stat-card__title" [appSkeleton]="{ loading: loading, type: 'text' }">Completed Projects</div>
         </div>
     </div>
-    }
 </div>

@@ -104,3 +104,68 @@ h2 { font-size: var(--font-size-lg); margin: 0 0 var(--space-3); }
 .mat-mdc-chip.chip-in_progress { @include status-chip(var(--status-in-progress)); }
 .mat-mdc-chip.chip-completed   { @include status-chip(var(--status-completed)); }
 .mat-mdc-chip.chip-overdue     { @include status-chip(var(--status-overdue)); }
+
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.app-skeleton {
+  position: relative;
+}
+
+.app-skeleton--loading {
+  background: #e8e8e8 !important;
+  color: transparent !important;
+  border-color: transparent !important;
+  text-shadow: none !important;
+  user-select: none;
+  overflow: hidden;
+}
+
+.app-skeleton--loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: skeleton-shimmer 1.25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.app-skeleton--loading > * {
+  opacity: 0;
+}
+
+.app-skeleton--text {
+  border-radius: var(--radius-sm);
+  min-width: 1em;
+}
+
+.app-skeleton--text.app-skeleton--loading {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.app-skeleton--user-image-circle {
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-skeleton--loading::after {
+    animation: none;
+  }
+}

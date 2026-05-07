@@ -1,15 +1,15 @@
 import { Component, computed, Input, Signal } from '@angular/core'
 import { Project } from '../../../core/models'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatIconModule } from '@angular/material/icon'
+import { SkeletonDirective } from '../../../core/directives/skeleton.directive'
 
 @Component({
   selector: 'app-stat-cards-section',
   templateUrl: 'stat-cards-section.component.html',
   styleUrl: 'stat-cards-section.component.scss',
   imports: [
-    MatProgressSpinnerModule,
     MatIconModule,
+    SkeletonDirective,
   ],
 })
 export class StatCardsSectionComponent {

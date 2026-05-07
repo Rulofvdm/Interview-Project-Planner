@@ -19,7 +19,7 @@ export class ApiService {
   private readonly http = inject(HttpClient)
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${API_BASE}/projects?fail=true`).pipe(
+    return this.http.get<Project[]>(`${API_BASE}/projects`).pipe(
       retry(3)
     ) // at some point if we're loading a lot of items, we should consider using a pagination strategy
   }
