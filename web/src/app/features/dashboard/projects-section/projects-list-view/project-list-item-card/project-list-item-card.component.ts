@@ -5,6 +5,7 @@ import { MatCard, MatCardContent } from "@angular/material/card"
 import { MatChip } from "@angular/material/chips"
 import { MatProgressBar } from "@angular/material/progress-bar"
 import { DatePipe } from "@angular/common"
+import { SkeletonDirective } from "../../../../../core/directives/skeleton.directive"
 
 @Component({
   selector: 'app-project-list-item-card',
@@ -17,8 +18,10 @@ import { DatePipe } from "@angular/common"
     MatChip,
     MatProgressBar,
     DatePipe,
+    SkeletonDirective,
   ]
 })
 export class ProjectListItemCardComponent {
   @Input() project!: Project
+  @Input() loading = false
 }

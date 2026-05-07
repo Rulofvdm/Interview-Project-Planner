@@ -1,7 +1,7 @@
 .project-card {
   background: var(--bg-panel);
   box-shadow: var(--shadow-card);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid var(--border-subtle);
   overflow: hidden;
 }
@@ -95,6 +95,11 @@
   height: 20px;
   background: #f3f2f1 !important;
   color: var(--text-secondary);
+}
+
+.project-chip-skeleton.app-skeleton--loading {
+  min-width: 58px;
+  background: #e8e8e8 !important;
 }
 
 @media (max-width: 760px) {

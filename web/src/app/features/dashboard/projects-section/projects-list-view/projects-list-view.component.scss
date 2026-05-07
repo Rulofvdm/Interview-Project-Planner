@@ -3,3 +3,34 @@
   flex-direction: column;
   gap: var(--space-1);
 }
+
+@for $i from 1 through 20 {
+  .projects-list-view--loaded app-project-list-item-card:nth-child(#{$i}) {
+    --project-list-index: #{$i - 1};
+  }
+}
+
+.projects-list-view--loaded app-project-list-item-card {
+  opacity: 0;
+  animation: project-list-waterfall-in 220ms ease-out forwards;
+  animation-delay: calc((var(--project-list-index, 0) * 30ms));
+}
+
+@keyframes project-list-waterfall-in {
+  from {
+    opacity: 0;
+    transform: translateX(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-list-view--loaded app-project-list-item-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

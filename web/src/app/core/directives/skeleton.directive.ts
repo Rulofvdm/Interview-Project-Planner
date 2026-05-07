@@ -55,7 +55,7 @@ export class SkeletonDirective {
   }
 
   private normalizeType(value: SkeletonType | null | undefined): SkeletonType {
-    if (value === 'user-image-circle' || value === 'text') {
+    if (value === 'icon' || value === 'user-image-circle' || value === 'text') {
       return value
     }
     return 'text'

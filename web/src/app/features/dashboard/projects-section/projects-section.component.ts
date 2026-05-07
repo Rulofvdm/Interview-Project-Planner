@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { Project, PROJECT_STATUS_FILTER_OPTIONS, ProjectStatusFilterOption } from '../../../core/models'
 import { ProjectsListViewComponent } from './projects-list-view/projects-list-view.component'
 import { ProjectsTableViewComponent } from './projects-table-view/projects-table-view.component'
+import { createMockProjects } from './projects-list-view/projects-list-view-loading.util'
 
 type ProjectsSectionViewMode = 'list' | 'table'
 
@@ -29,6 +30,7 @@ type ProjectsSectionViewMode = 'list' | 'table'
 export class ProjectsSectionComponent {
   @Input({ required: true }) projects!: Signal<Project[]>
   @Input({ required: true }) loading!: boolean
+  readonly loadingProjects = createMockProjects(10)
 
   readonly projectStatusFilterOptions = PROJECT_STATUS_FILTER_OPTIONS
   
@@ -58,6 +60,11 @@ export class ProjectsSectionComponent {
 
   onViewModeChange(mode: ProjectsSectionViewMode): void {
     this.viewMode.set(mode)
+  }
+
+  getListViewProjects(): Project[] {
+    if (this.loading) return this.loadingProjects
+    return this.filteredProjects()
   }
 
   filterProjectsByStatus(projects: Project[], statusFilter: ProjectStatusFilterOption): Project[] {

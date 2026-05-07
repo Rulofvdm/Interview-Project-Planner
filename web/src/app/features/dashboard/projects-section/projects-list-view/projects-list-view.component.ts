@@ -10,4 +10,5 @@ import { ProjectListItemCardComponent } from './project-list-item-card/project-l
 })
 export class ProjectsListViewComponent {
   @Input({ required: true }) projects!: Project[]
+  @Input() loading = false
 }

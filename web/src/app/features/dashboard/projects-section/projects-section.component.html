@@ -38,20 +38,22 @@
     </div>
   </header>
 
-  @if (loading) {
-    <div>
-      <mat-spinner diameter="32" />
-      <span>Loading projects…</span>
-    </div>
-  } @else if (!projects().length) {
+  @if (!loading && !projects().length) {
     <p>No projects yet.</p>
-  } @else if (filteredProjects().length === 0) {
+  } @else if (!loading && filteredProjects().length === 0) {
     <p>No projects match this filter.</p>
   } @else {
     @if (viewMode() === 'table') {
-      <app-projects-table-view [projects]="filteredProjects()" />
+      @if (loading) {
+        <div>
+          <mat-spinner diameter="32" />
+          <span>Loading projects…</span>
+        </div>
+      } @else {
+        <app-projects-table-view [projects]="filteredProjects()" />
+      }
     } @else {
-      <app-projects-list-view [projects]="filteredProjects()" />
+      <app-projects-list-view [projects]="getListViewProjects()" [loading]="loading" />
     }
   }
 </section>

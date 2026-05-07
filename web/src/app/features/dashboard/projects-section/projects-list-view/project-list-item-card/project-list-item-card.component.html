@@ -1,34 +1,35 @@
 <mat-card class="project-card">
   <mat-card-content>
     <div class="project-card__top">
-      <span class="project-card__name">{{ project.name }}</span>
+      <span class="project-card__name" [appSkeleton]="{ loading: loading, type: 'text' }">{{ project.name }}</span>
       <div class="project-card__top-chips">
         @if (project.tags.length) {
           @for (tag of project.tags; track tag) {
-            <mat-chip class="tag-chip" disabled>{{ tag }}</mat-chip>
+            <mat-chip class="tag-chip project-chip-skeleton" [appSkeleton]="{ loading: loading, type: 'text' }" disabled>{{ tag }}</mat-chip>
           }
         }
-        <mat-chip [class]="'chip-' + project.status" disabled>
+        <mat-chip [class]="'project-chip-skeleton chip-' + project.status" [appSkeleton]="{ loading: loading, type: 'text' }" disabled>
           {{ project.status | statusLabel }}
         </mat-chip>
       </div>
     </div>
 
-    <p class="project-card__desc">{{ project.description }}</p>
+    <p class="project-card__desc" [appSkeleton]="{ loading: loading, type: 'text' }">{{ project.description }}</p>
 
     <div class="project-card__meta">
       <div class="project-card__meta-left">
         <div class="project-card__owner">
           <span
             class="project-card__avatar"
+            [appSkeleton]="{ loading: loading, type: 'user-image-circle' }"
             [style.background]="project.owner.avatarColor"
           >{{ project.owner.initials }}</span>
-          <span>{{ project.owner.name }}</span>
+          <span [appSkeleton]="{ loading: loading, type: 'text' }">{{ project.owner.name }}</span>
         </div>
 
-        <span class="project-card__tasks">{{ project.tasksDone }}/{{ project.tasksTotal }} tasks</span>
+        <span class="project-card__tasks" [appSkeleton]="{ loading: loading, type: 'text' }">{{ project.tasksDone }}/{{ project.tasksTotal }} tasks</span>
       </div>
-        <span class="project-card__due">Due {{ project.dueDate | date: 'MMM d' }}</span>
+        <span class="project-card__due" [appSkeleton]="{ loading: loading, type: 'text' }">Due {{ project.dueDate | date: 'MMM d' }}</span>
     </div>
   </mat-card-content>
 

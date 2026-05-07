@@ -1,5 +1,5 @@
-<div class="projects-list-view">
+<div class="projects-list-view" [class.projects-list-view--loaded]="!loading">
   @for (project of projects; track project.id) {
-    <app-project-list-item-card [project]="project" />
+    <app-project-list-item-card [project]="project" [loading]="loading" />
   }
 </div>
